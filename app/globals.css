@@ -1,0 +1,346 @@
+:root {
+  color-scheme: light;
+  --font-stack: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Arial, sans-serif;
+  --sand-50: #fdfbf8;
+  --sand-100: #f6efe5;
+  --sand-200: #ede3d7;
+  --sand-500: #c7b297;
+  --slate-900: #0f172a;
+  --slate-700: #334155;
+  --slate-500: #64748b;
+  --accent-500: #6366f1;
+  --accent-400: #818cf8;
+  --accent-300: #a5b4fc;
+  --success-500: #22c55e;
+  --border-radius: 20px;
+  --shadow-soft: 0 30px 60px -40px rgba(15, 23, 42, 0.35);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-stack);
+  background: var(--sand-50);
+  color: var(--slate-900);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1120px, 92vw);
+  margin: 0 auto;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--accent-500);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.hero {
+  padding: 6rem 0 4rem;
+}
+
+.hero-heading {
+  font-size: clamp(2.8rem, 4vw + 1rem, 4.8rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin: 1rem 0;
+}
+
+.hero-subheading {
+  font-size: clamp(1.15rem, 1vw + 1rem, 1.45rem);
+  color: var(--slate-700);
+  max-width: 56rem;
+  line-height: 1.6;
+}
+
+.hero-visual {
+  margin-top: 3rem;
+  position: relative;
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  background: linear-gradient(135deg, var(--sand-100), rgba(129, 140, 248, 0.12));
+  box-shadow: var(--shadow-soft);
+}
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 1.5rem;
+  border-radius: inherit;
+  border: 1px solid rgba(129, 140, 248, 0.2);
+  pointer-events: none;
+}
+
+.hero-diagram {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero-diagram-row {
+  display: grid;
+  gap: 1rem;
+}
+
+.hero-diagram-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.badge {
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  background: rgba(15, 23, 42, 0.05);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge span {
+  display: inline-flex;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-heading {
+  font-size: clamp(2rem, 2.6vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.section-intro {
+  max-width: 52rem;
+  color: var(--slate-700);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.cards {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 3rem;
+}
+
+.card {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  display: grid;
+  gap: 1.25rem;
+  box-shadow: 0 20px 40px -35px rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.card p {
+  color: var(--slate-600, var(--slate-700));
+  margin: 0;
+  line-height: 1.6;
+}
+
+.card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--slate-700);
+  display: grid;
+  gap: 0.35rem;
+}
+
+.timeline {
+  margin-top: 3rem;
+  border-left: 2px solid rgba(15, 23, 42, 0.1);
+  padding-left: 1.5rem;
+  display: grid;
+  gap: 2.5rem;
+}
+
+.timeline-step {
+  position: relative;
+}
+
+.timeline-step::before {
+  content: attr(data-step);
+  position: absolute;
+  left: -3.3rem;
+  top: 0.1rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: white;
+  border: 2px solid var(--accent-400);
+  display: inline-grid;
+  place-items: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-500);
+}
+
+.timeline-step h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+}
+
+.timeline-step p {
+  margin: 0;
+  color: var(--slate-700);
+  line-height: 1.6;
+}
+
+.split {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 3rem;
+}
+
+.stats {
+  display: grid;
+  gap: 1rem;
+}
+
+.stat {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 18px 36px -32px rgba(15, 23, 42, 0.56);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.stat strong {
+  display: block;
+  font-size: 2rem;
+  color: var(--accent-500);
+}
+
+.cta {
+  padding: 5rem 0 6rem;
+}
+
+.cta-card {
+  background: linear-gradient(135deg, var(--accent-400), var(--accent-500));
+  color: white;
+  border-radius: var(--border-radius);
+  padding: clamp(2rem, 10vw, 4rem);
+  display: grid;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.cta-card p {
+  max-width: 36rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.75rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: white;
+  color: var(--accent-500);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button.secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: white;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 20px -15px rgba(15, 23, 42, 0.65);
+}
+
+.faq {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.faq-item {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 1.75rem;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 18px 36px -32px rgba(15, 23, 42, 0.56);
+}
+
+.faq-item h3 {
+  margin: 0 0 0.75rem;
+}
+
+.faq-item p {
+  margin: 0;
+  color: var(--slate-700);
+  line-height: 1.65;
+}
+
+.footer {
+  padding: 3rem 0;
+  text-align: center;
+  color: var(--slate-500);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .hero-diagram {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hero-diagram-row {
+    grid-auto-rows: minmax(0, 1fr);
+  }
+}
